@@ -18,7 +18,7 @@ def getDifBetweenSameSizeImages(im1, im2):
 
 def getBestMatchLoc(testIm, refIm):
     difMap = getDifMap(testIm=testIm, refIm=refIm)
-    minVal, maxVal, minLoc, maxLoc = cv2.MinMaxLoc(difMap)
+    minVal, maxVal, minLoc, maxLoc = cv2.minMaxLoc(difMap)
     return minLoc
 
 
@@ -30,20 +30,36 @@ class ImageFinder(object):
         self.testImage = testImage
         self.referenceImage = referenceImage
 
-    def findImage(self):
+        self.calculateRefShape()
+
+    def calculateRefShape(self):
+        self.refShape = self.referenceImage.shape
+        self.refH = self.refShape[0]
+        self.refW = self.refShape[1]
+
+    def findUpperLeftMatch(self):
         """
-        This return tuples of two paris. first pair is the upper-left corner.
-        second pair is the lower right corner
+        This returns a pair (row, column) of upper left of the image
         """
+        raise NotImplemented
+
+
+    def findMatchedRectangle(self):
+        """
+        :return: two pairs. first pair is the upper-left corner point
+        second pair is the lower right corner point
+        """
+        upperLeftCorner = self.findUpperLeftMatch()
+
+        upperRow = upperLeftCorner[1]
+        leftCol = upperLeftCorner[0]
+
         raise NotImplemented
 
 
 
 
-
-
-
 class ExhaustiveImageFinder(ImageFinder):
-    def findImage(self):
-        loc = getBestMatchLoc(self.testImage)
+    def findUpperLeftMatch(self):
+        loc = getBestMatchLoc(self.testImage, self.referenceImage)
         return loc

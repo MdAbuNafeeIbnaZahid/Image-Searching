@@ -6,14 +6,14 @@ def getRefTestImage(inputFileName):
     inputFileFullPath = getFullPathFromFileName(inputFileName)
     inputFile = open(inputFileFullPath, 'r')
 
-    refFileName = inputFile.readline()[:-1]
     testFileName = inputFile.readline()[:-1]
+    refFileName = inputFile.readline()[:-1]
     # readline returns a line with \n at the end
 
     refImage = getImageFromImageName(refFileName)
     testImage = getImageFromImageName(testFileName)
 
-    return refImage, testImage
+    return testImage, refImage
 
 
 def getFullPathFromFileName(fileName):

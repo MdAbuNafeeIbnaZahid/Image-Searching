@@ -4,9 +4,8 @@ from input_taking import getRefTestImage
 
 
 inputFileName = 'input.txt'
-refImage, testImage = getRefTestImage(inputFileName)
+testImage, refImage = getRefTestImage(inputFileName)
 
 
-cv2.imshow('image', refImage)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
+exImFinder = ExhaustiveImageFinder(testImage=testImage, referenceImage=refImage)
+matchedRectangle = exImFinder.findMatchedRectangle()
