@@ -15,6 +15,10 @@ class Point(AttrDisplay):
         ret = Point(self.w + other.w, self.h + other.h)
         return ret
 
+    def __sub__(self, other):
+        ret = Point(self.w - other.w, self.h - other.h)
+        return ret
+
     def getMin(self):
         return min(self.w, self.h)
 
@@ -43,6 +47,25 @@ class Rectangle(AttrDisplay):
     def __init__(self, topLeft, w, h):
         self.topLeft = topLeft
         self.bottomRight = topLeft + Point(w=w,h=h)
+
+
+    def __add__(self, otherPoint):
+        ret = copy.deepcopy(self)
+
+        ret.topLeft += otherPoint
+        ret.bottomRight += otherPoint
+
+        return ret
+
+
+    def __sub__(self, otherPoint):
+        ret = copy.deepcopy(self)
+
+        ret.topLeft -= otherPoint
+        ret.bottomRight -= otherPoint
+
+        return ret
+
 
     def getTopLeftTuple(self):
         return self.topLeft.getWHTuple()
@@ -91,6 +114,22 @@ class Rectangle(AttrDisplay):
         whPoint = Point(w=iw,h=ih)
         ret.bottomRight = ret.bottomRight.getElementWiseOperatedPoint(anotherPoint=whPoint, operation=min)
 
+        return ret
+
+    def getSlidedRectInsideImage(self, img):
+        ret = copy.deepcopy(self)
+
+        iw, ih = getWH(img=img)
+
+        zeroPoint = Point(0,0)
+        shiftForZP = (zeroPoint - ret.topLeft)
+        shiftForZP = shiftForZP.getElementWiseOperatedPoint(anotherPoint=zeroPoint, operation=max)
+
+        whPoint = Point(iw,ih)
+        shiftForWH = whPoint - ret.bottomRight
+        shiftForWH = shiftForWH.getElementWiseOperatedPoint(anotherPoint=zeroPoint, operation=min)
+
+        ret = ret + shiftForZP + shiftForWH
         return ret
 
 
