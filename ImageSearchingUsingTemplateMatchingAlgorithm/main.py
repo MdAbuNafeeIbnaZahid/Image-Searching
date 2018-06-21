@@ -9,8 +9,9 @@ testImage, refImage = getRefTestImage(inputFileName)
 
 exImFinder = ExhaustiveImageFinder(testImage=testImage, referenceImage=refImage)
 hierImFinder = HierarchicalImageFinder(testImage=testImage, referenceImage=refImage)
+logImFinder = LogarithmicImageFinder(testImage=testImage, referenceImage=refImage)
 
-matchedRectangle = hierImFinder.findMatchedRectangle()
+matchedRectangle = logImFinder.findMatchedRectangle()
 
 print( matchedRectangle )
 

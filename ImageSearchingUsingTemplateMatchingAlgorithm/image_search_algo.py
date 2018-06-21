@@ -37,6 +37,10 @@ class Point(AttrDisplay):
         ret = Point( w=newW, h=newH  )
         return ret
 
+    def getIntPoint(self):
+        ret = Point( int(self.w), int(self.h) )
+        return ret
+
 
 
 
@@ -132,6 +136,10 @@ class Rectangle(AttrDisplay):
         ret = ret + shiftForZP + shiftForWH
         return ret
 
+def getBottomRightPoint(img):
+    w,h = getWH(img=img)
+    return Point(w,h)
+
 
 def getRectangle(topLeft, refIm):
     w,h = getWH(refIm)
@@ -176,9 +184,8 @@ def getWH(img):
 
 def isWithin(testIm, refIm, topLeft):
 
-    refW, refH = getWH(refIm)
     testW, testH = getWH(testIm)
-    bottomRight = topLeft + Point(refW, refH)
+    bottomRight = topLeft + getBottomRightPoint(img=refIm)
 
     if topLeft.getMin() < 0:
         return False
@@ -257,6 +264,7 @@ class ImageFinder(object):
         self.referenceImage = referenceImage
 
         self.refW, self.refH = getWH(referenceImage)
+        self.testW, self.testH = getWH(testImage)
 
 
     def findUpperLeftMatch(self):
@@ -320,3 +328,58 @@ class HierarchicalImageFinder(ImageFinder):
 
     def findUpperLeftMatch(self):
         return self.getUpperLeftMatchHier(self.testImage, self.referenceImage)
+
+
+
+
+
+class LogarithmicImageFinder(ImageFinder):
+    dwAr = [-1, -1, -1, 0, 0, 0, 1, 1, 1]
+    dhAr = [-1, 0, 1, -1, 0, 1, -1, 0, 1]
+
+    def __init__(self, testImage, referenceImage):
+        ImageFinder.__init__(self, testImage=testImage, referenceImage=referenceImage)
+        self.refBottomRight = getBottomRightPoint(img=self.referenceImage)
+        self.testBottomRight = getBottomRightPoint(img=self.testImage)
+
+        self.p = self.refBottomRight * 0.5
+
+        self.center = self.testBottomRight * 0.5 - self.refBottomRight * 0.5
+
+
+    def getNineTopLeftPoints(self):
+        ret = []
+        for i in range(0,9):
+            dw = LogarithmicImageFinder.dwAr[i] * self.p.w
+            dh = LogarithmicImageFinder.dhAr[i] * self.p.h
+
+            curTopLeft = self.center + Point(dw,dh)
+            curTopLeft = curTopLeft.getIntPoint()
+            curRectangle = getRectangle(curTopLeft, self.referenceImage)
+            curValidRectangle = curRectangle.getSlidedRectInsideImage(self.testImage)
+
+            curValidTopLeft = curValidRectangle.topLeft
+
+            ret.append(curValidTopLeft)
+
+        return ret
+
+
+    def findUpperLeftMatch(self):
+
+        while( self.p.getMin() > 1 ):
+            nineTopLeftPoints = self.getNineTopLeftPoints()
+
+            posCenter = None
+            minCost = float('inf')
+            for topLeftPoint in nineTopLeftPoints:
+                curCost = getDif(testIm=self.testImage, refIm=self.referenceImage, topLeftPoint=topLeftPoint)
+                if curCost < minCost:
+                    minCost = curCost
+                    posCenter = topLeftPoint
+
+            self.center = posCenter
+            self.p = self.p * 0.5
+
+        return self.center
+
