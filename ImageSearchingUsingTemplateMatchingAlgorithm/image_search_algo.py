@@ -25,11 +25,13 @@ class Point(AttrDisplay):
     def getWHTuple(self):
         return (self.w, self.h)
 
+
+
+
+
 class Rectangle(AttrDisplay):
     def __init__(self, topLeft, w, h):
         self.topLeft = topLeft
-        self.w = w
-        self.h = h
         self.bottomRight = topLeft + Point(w=w,h=h)
 
     def getTopLeftTuple(self):
@@ -37,6 +39,58 @@ class Rectangle(AttrDisplay):
 
     def getBottomRightTuple(self):
         return self.bottomRight.getWHTuple()
+
+    def isInImage(self, img):
+        iw, ih = getWH(img=img)
+
+        if self.topLeft.getMin() < 0:
+            return False
+        if self.bottomRight.w > iw or self.bottomRight.h > ih:
+            return False
+
+        return True
+
+    def getTopH(self):
+        return self.topLeft.h
+
+    def getBottomH(self):
+        return self.bottomRight.h
+
+    def getLeftW(self):
+        return self.topLeft.w
+
+    def getRightW(self):
+        return self.bottomRight.w
+
+
+def getCroppedImage(img, rectangle):
+    assert rectangle.isInImage(img)
+
+    topH = rectangle.getTopH()
+    bottomH = rectangle.getBottomH()
+
+    leftW = rectangle.getLeftW()
+    rightW = rectangle.getRightW()
+
+    croppedImage = img[topH:bottomH, leftW:rightW]
+
+    return croppedImage
+
+
+def getBottomRight(topLeft, refIm):
+    refW, refH = getWH(refIm)
+    bottomRight = Point(topLeft.w + refW, topLeft.h + refH)
+
+    return bottomRight
+
+
+
+def getCroppedImage(testIm, refIm, topLeft):
+    bottomRight = getBottomRight(topLeft=topLeft, refIm=refIm)
+
+    croppedIm = testIm[topLeft.h : bottomRight.h, topLeft.w : bottomRight.w]
+    return croppedIm
+
 
 def getWH(img):
     h = img.shape[0]
@@ -51,7 +105,7 @@ def isWithin(testIm, refIm, topLeft):
 
     if topLeft.getMin() < 0:
         return False
-    if bottomRight.w > testW or bottomRight.h > tesH :
+    if bottomRight.w > testW or bottomRight.h > testH :
         return False
 
     return True
@@ -75,6 +129,11 @@ def getDif(testIm, refIm, topLeftPoint):
     if not isWithin(testIm=testIm, refIm=refIm, topLeft=topLeftPoint):
         return float('inf')
 
+    croppedImage = getCroppedImage(testIm=testIm, refIm=refIm, topLeft=topLeftPoint)
+    ret = getDifBetweenSameSizeImages(im1=refIm, im2=croppedImage)
+
+    return ret
+
 
 def getDifBetweenSameSizeImages(im1, im2):
     assert im1.shape == im2.shape
@@ -88,6 +147,25 @@ def getBestMatchLoc(testIm, refIm):
     difMap = getDifMap(testIm=testIm, refIm=refIm)
     minVal, maxVal, minLoc, maxLoc = cv2.minMaxLoc(difMap)
     return minLoc
+
+
+def getLocInBig(testIm, refIm, posLocInBig):
+
+    minDif = float('inf')
+    ret = None
+
+    checkRange = range(-1,2)
+
+    for dw in checkRange:
+        for dh in checkRange:
+            dp = Point(w=dw, h=dh)
+            curLocInBig = posLocInBig + dp
+            curDif = getDif(testIm=testIm, refIm=refIm, topLeftPoint=curLocInBig)
+            if curDif < minDif:
+                minDif = curDif
+                ret = curLocInBig
+
+    return ret
 
 
 
@@ -130,6 +208,7 @@ class ImageFinder(object):
 class ExhaustiveImageFinder(ImageFinder):
     def findUpperLeftMatch(self):
         loc = getBestMatchLoc(self.testImage, self.referenceImage)
+        loc = Point(loc[0], loc[1])
         return loc
 
 
@@ -150,8 +229,7 @@ class HierarchicalImageFinder(ImageFinder):
             posLocInBig = locInSmall * 2
 
 
-            ret = posLocInBig
-
+            ret = getLocInBig(testIm=testIm, refIm=refIm, posLocInBig=posLocInBig)
             return ret
 
 
