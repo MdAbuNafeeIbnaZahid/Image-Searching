@@ -10,3 +10,4 @@ testImage, refImage = getRefTestImage(inputFileName)
 exImFinder = ExhaustiveImageFinder(testImage=testImage, referenceImage=refImage)
 matchedRectangle = exImFinder.findMatchedRectangle()
 
+print( matchedRectangle )

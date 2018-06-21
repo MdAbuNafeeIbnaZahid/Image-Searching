@@ -2,8 +2,11 @@ import cv2
 import numpy as np
 from collections import namedtuple
 import copy
+import time
+from classtools import AttrDisplay
 
-class Rectangle:
+
+class Rectangle(AttrDisplay):
 
     def __init__(self, topLeft, w, h):
         self.topLeft = topLeft
@@ -67,7 +70,14 @@ class ImageFinder(object):
         :return: two pairs. first pair is the upper-left corner point
         second pair is the lower right corner point
         """
+        startTime = time.time()
+
         topLeftCorner = self.findUpperLeftMatch()
+
+        endTime = time.time()
+        elapsedTime = endTime-startTime
+        print('elapsedTime = ' + str(elapsedTime) )
+
         rectangle = Rectangle(topLeft=topLeftCorner, w=self.refW, h=self.refH)
 
         return rectangle
