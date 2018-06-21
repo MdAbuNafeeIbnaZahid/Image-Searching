@@ -8,6 +8,13 @@ testImage, refImage = getRefTestImage(inputFileName)
 
 
 exImFinder = ExhaustiveImageFinder(testImage=testImage, referenceImage=refImage)
-matchedRectangle = exImFinder.findMatchedRectangle()
+hierImFinder = HierarchicalImageFinder(testImage=testImage, referenceImage=refImage)
+
+matchedRectangle = hierImFinder.findMatchedRectangle()
 
 print( matchedRectangle )
+
+rectangledImage = getRectangledImage(img=testImage, rectangle=matchedRectangle)
+cv2.imshow('img', rectangledImage)
+cv2.waitKey(0)
+cv2.destroyAllWindows()

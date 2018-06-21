@@ -29,9 +29,7 @@ def getDifMap(testIm, refIm):
     return difMap
 
 def getDifBetweenSameSizeImages(im1, im2):
-    size1 = im1.shape
-    size2 = im2.shape
-    assert size1 == size2
+    assert im1.shape == im2.shape
 
     difMap = getDifMap
     ret = difMap[0][0]
@@ -89,3 +87,27 @@ class ExhaustiveImageFinder(ImageFinder):
     def findUpperLeftMatch(self):
         loc = getBestMatchLoc(self.testImage, self.referenceImage)
         return loc
+
+
+class HierarchicalImageFinder(ImageFinder):
+    def getUpperLeftMatchHier(self, testIm, refIm):
+        refShape = refIm.shape
+        minRefWOrH =  min(refShape[:2] )
+
+        if (minRefWOrH < 10):
+            return getBestMatchLoc(testIm=testIm, refIm=refIm)
+        else:
+
+            smallTestIm = cv2.pyrDown(testIm)
+            smallRefIm = cv2.pyrDown(refIm)
+
+            locInSmall = self.getUpperLeftMatchHier(smallTestIm, smallRefIm)
+            ret = ( locInSmall[0]*2, locInSmall[1]*2 )
+
+            return ret
+
+
+
+
+    def findUpperLeftMatch(self):
+        return self.getUpperLeftMatchHier(self.testImage, self.referenceImage)
