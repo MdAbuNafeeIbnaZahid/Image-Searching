@@ -30,6 +30,8 @@ class Point(AttrDisplay):
 
 
 class Rectangle(AttrDisplay):
+
+
     def __init__(self, topLeft, w, h):
         self.topLeft = topLeft
         self.bottomRight = topLeft + Point(w=w,h=h)
@@ -62,6 +64,21 @@ class Rectangle(AttrDisplay):
     def getRightW(self):
         return self.bottomRight.w
 
+    def getEnlargedRectangle(self, d):
+
+        ret = copy.deepcopy(self)
+        ret.topLeft += Point(-d,-d)
+        ret.bottomRight += Point(d,d)
+
+        return ret
+
+
+def getRectangle(topLeft, refIm):
+    w,h = getWH(refIm)
+    ret = Rectangle(topLeft=topLeft, w=w, h=h)
+    return ret
+
+
 
 def getCroppedImage(img, rectangle):
     assert rectangle.isInImage(img)
@@ -85,7 +102,7 @@ def getBottomRight(topLeft, refIm):
 
 
 
-def getCroppedImage(testIm, refIm, topLeft):
+def getCroppedImageFromRefImTopLeft(testIm, refIm, topLeft):
     bottomRight = getBottomRight(topLeft=topLeft, refIm=refIm)
 
     croppedIm = testIm[topLeft.h : bottomRight.h, topLeft.w : bottomRight.w]
@@ -129,7 +146,7 @@ def getDif(testIm, refIm, topLeftPoint):
     if not isWithin(testIm=testIm, refIm=refIm, topLeft=topLeftPoint):
         return float('inf')
 
-    croppedImage = getCroppedImage(testIm=testIm, refIm=refIm, topLeft=topLeftPoint)
+    croppedImage = getCroppedImageFromRefImTopLeft(testIm=testIm, refIm=refIm, topLeft=topLeftPoint)
     ret = getDifBetweenSameSizeImages(im1=refIm, im2=croppedImage)
 
     return ret
@@ -146,24 +163,22 @@ def getDifBetweenSameSizeImages(im1, im2):
 def getBestMatchLoc(testIm, refIm):
     difMap = getDifMap(testIm=testIm, refIm=refIm)
     minVal, maxVal, minLoc, maxLoc = cv2.minMaxLoc(difMap)
+    minLoc = Point(minLoc[0], minLoc[1])
     return minLoc
 
 
-def getLocInBig(testIm, refIm, posLocInBig):
+def getLocInBig(testIm, refIm, posTopLeftInBig):
 
     minDif = float('inf')
     ret = None
 
-    checkRange = range(-1,2)
+    posRect = getRectangle(topLeft=posTopLeftInBig, refIm=refIm)
+    enlargedRect = posRect.getEnlargedRectangle(d=1)
+    croppedTestIm = getCroppedImage(img=testIm, rectangle=enlargedRect)
 
-    for dw in checkRange:
-        for dh in checkRange:
-            dp = Point(w=dw, h=dh)
-            curLocInBig = posLocInBig + dp
-            curDif = getDif(testIm=testIm, refIm=refIm, topLeftPoint=curLocInBig)
-            if curDif < minDif:
-                minDif = curDif
-                ret = curLocInBig
+    bestMatchLocInEnlargedCropped = getBestMatchLoc(testIm=croppedTestIm, refIm=refIm)
+
+    ret = bestMatchLocInEnlargedCropped + enlargedRect.topLeft
 
     return ret
 
@@ -208,7 +223,7 @@ class ImageFinder(object):
 class ExhaustiveImageFinder(ImageFinder):
     def findUpperLeftMatch(self):
         loc = getBestMatchLoc(self.testImage, self.referenceImage)
-        loc = Point(loc[0], loc[1])
+
         return loc
 
 
@@ -219,7 +234,7 @@ class HierarchicalImageFinder(ImageFinder):
 
         if (minRefWOrH < 10):
             ret = getBestMatchLoc(testIm=testIm, refIm=refIm)
-            return Point(w=ret[0], h=ret[1])
+            return ret
         else:
 
             smallTestIm = cv2.pyrDown(testIm)
@@ -229,7 +244,7 @@ class HierarchicalImageFinder(ImageFinder):
             posLocInBig = locInSmall * 2
 
 
-            ret = getLocInBig(testIm=testIm, refIm=refIm, posLocInBig=posLocInBig)
+            ret = getLocInBig(testIm=testIm, refIm=refIm, posTopLeftInBig=posLocInBig)
             return ret
 
 
