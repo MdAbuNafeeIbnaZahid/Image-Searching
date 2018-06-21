@@ -25,6 +25,14 @@ class Point(AttrDisplay):
     def getWHTuple(self):
         return (self.w, self.h)
 
+    def getElementWiseOperatedPoint(self, anotherPoint, operation):
+
+        newW = operation( self.w, anotherPoint.w )
+        newH = operation(self.h, anotherPoint.h)
+
+        ret = Point( w=newW, h=newH  )
+        return ret
+
 
 
 
@@ -69,6 +77,19 @@ class Rectangle(AttrDisplay):
         ret = copy.deepcopy(self)
         ret.topLeft += Point(-d,-d)
         ret.bottomRight += Point(d,d)
+
+        return ret
+
+    def getChoppedRectByImage(self, img):
+        iw, ih = getWH(img=img)
+
+        ret = copy.deepcopy(self)
+
+        zeroZeroPoint = Point(0,0)
+        ret.topLeft = ret.topLeft.getElementWiseOperatedPoint(anotherPoint=zeroZeroPoint, operation=max)
+
+        whPoint = Point(w=iw,h=ih)
+        ret.bottomRight = ret.bottomRight.getElementWiseOperatedPoint(anotherPoint=whPoint, operation=min)
 
         return ret
 
@@ -173,12 +194,18 @@ def getLocInBig(testIm, refIm, posTopLeftInBig):
     ret = None
 
     posRect = getRectangle(topLeft=posTopLeftInBig, refIm=refIm)
-    enlargedRect = posRect.getEnlargedRectangle(d=1)
-    croppedTestIm = getCroppedImage(img=testIm, rectangle=enlargedRect)
+    # print( 'posRect = ', posRect )
+    enlargedRect = posRect.getEnlargedRectangle(d=3)
+    # print('enlargedRect = ' , enlargedRect)
+    # print('testIm.shape = ', testIm.shape)
+    validRectangleForCropping = enlargedRect.getChoppedRectByImage(img=testIm)
+    # print('validRectangleForCropping = ', validRectangleForCropping )
+    croppedTestIm = getCroppedImage(img=testIm, rectangle=validRectangleForCropping)
+    # print( ' croppedTestIm.shape = ', croppedTestIm.shape  )
 
     bestMatchLocInEnlargedCropped = getBestMatchLoc(testIm=croppedTestIm, refIm=refIm)
 
-    ret = bestMatchLocInEnlargedCropped + enlargedRect.topLeft
+    ret = bestMatchLocInEnlargedCropped + validRectangleForCropping.topLeft
 
     return ret
 
@@ -241,7 +268,9 @@ class HierarchicalImageFinder(ImageFinder):
             smallRefIm = cv2.pyrDown(refIm)
 
             locInSmall = self.getUpperLeftMatchHier(smallTestIm, smallRefIm)
+            # print('locInSmall = ', locInSmall)
             posLocInBig = locInSmall * 2
+            # print('posLocInBig = ', posLocInBig)
 
 
             ret = getLocInBig(testIm=testIm, refIm=refIm, posTopLeftInBig=posLocInBig)
