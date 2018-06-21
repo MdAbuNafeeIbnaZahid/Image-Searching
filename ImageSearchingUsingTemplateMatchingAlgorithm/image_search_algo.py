@@ -1,5 +1,24 @@
 import cv2
 import numpy as np
+from collections import namedtuple
+import copy
+
+class Rectangle:
+
+    def __init__(self, topLeft, w, h):
+        self.topLeft = topLeft
+        self.w = w
+        self.h = h
+        self.bottomRight = (topLeft[0]+w, topLeft[1]+h)
+
+def getRectangledImage(img, rectangle):
+
+    ret = copy.deepcopy(img)
+    color = (255, 0, 0)
+    thickness = 3
+
+    cv2.rectangle(ret, rectangle.topLeft, rectangle.bottomRight, color=color, thickness=thickness )
+    return ret
 
 
 def getDifMap(testIm, refIm):
@@ -20,7 +39,6 @@ def getBestMatchLoc(testIm, refIm):
     difMap = getDifMap(testIm=testIm, refIm=refIm)
     minVal, maxVal, minLoc, maxLoc = cv2.minMaxLoc(difMap)
     return minLoc
-
 
 
 
@@ -49,12 +67,10 @@ class ImageFinder(object):
         :return: two pairs. first pair is the upper-left corner point
         second pair is the lower right corner point
         """
-        upperLeftCorner = self.findUpperLeftMatch()
+        topLeftCorner = self.findUpperLeftMatch()
+        rectangle = Rectangle(topLeft=topLeftCorner, w=self.refW, h=self.refH)
 
-        upperRow = upperLeftCorner[1]
-        leftCol = upperLeftCorner[0]
-
-        raise NotImplemented
+        return rectangle
 
 
 
