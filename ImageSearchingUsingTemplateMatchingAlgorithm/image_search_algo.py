@@ -6,21 +6,63 @@ import time
 from classtools import AttrDisplay
 
 
-class Rectangle(AttrDisplay):
+class Point(AttrDisplay):
+    def __init__(self, w, h):
+        self.w = w
+        self.h = h
 
+    def __add__(self, other):
+        ret = Point(self.w + other.w, self.h + other.h)
+        return ret
+
+    def getMin(self):
+        return min(self.w, self.h)
+
+    def __mul__(self, other):
+        ret = Point(self.w * other, self.h*other)
+        return ret
+
+    def getWHTuple(self):
+        return (self.w, self.h)
+
+class Rectangle(AttrDisplay):
     def __init__(self, topLeft, w, h):
         self.topLeft = topLeft
         self.w = w
         self.h = h
-        self.bottomRight = (topLeft[0]+w, topLeft[1]+h)
+        self.bottomRight = topLeft + Point(w=w,h=h)
+
+    def getTopLeftTuple(self):
+        return self.topLeft.getWHTuple()
+
+    def getBottomRightTuple(self):
+        return self.bottomRight.getWHTuple()
+
+def getWH(img):
+    h = img.shape[0]
+    w = img.shape[1]
+    return w,h
+
+def isWithin(testIm, refIm, topLeft):
+
+    refW, refH = getWH(refIm)
+    testW, testH = getWH(testIm)
+    bottomRight = topLeft + Point(refW, refH)
+
+    if topLeft.getMin() < 0:
+        return False
+    if bottomRight.w > testW or bottomRight.h > tesH :
+        return False
+
+    return True
+
 
 def getRectangledImage(img, rectangle):
-
     ret = copy.deepcopy(img)
     color = (255, 0, 0)
     thickness = 3
 
-    cv2.rectangle(ret, rectangle.topLeft, rectangle.bottomRight, color=color, thickness=thickness )
+    cv2.rectangle(ret, rectangle.getTopLeftTuple(), rectangle.getBottomRightTuple(), color=color, thickness=thickness )
     return ret
 
 
@@ -28,10 +70,16 @@ def getDifMap(testIm, refIm):
     difMap = cv2.matchTemplate(testIm, refIm, cv2.TM_SQDIFF)
     return difMap
 
+
+def getDif(testIm, refIm, topLeftPoint):
+    if not isWithin(testIm=testIm, refIm=refIm, topLeft=topLeftPoint):
+        return float('inf')
+
+
 def getDifBetweenSameSizeImages(im1, im2):
     assert im1.shape == im2.shape
 
-    difMap = getDifMap
+    difMap = getDifMap(im1, im2)
     ret = difMap[0][0]
     return ret
 
@@ -49,12 +97,8 @@ class ImageFinder(object):
         self.testImage = testImage
         self.referenceImage = referenceImage
 
-        self.calculateRefShape()
+        self.refW, self.refH = getWH(referenceImage)
 
-    def calculateRefShape(self):
-        self.refShape = self.referenceImage.shape
-        self.refH = self.refShape[0]
-        self.refW = self.refShape[1]
 
     def findUpperLeftMatch(self):
         """
@@ -95,14 +139,18 @@ class HierarchicalImageFinder(ImageFinder):
         minRefWOrH =  min(refShape[:2] )
 
         if (minRefWOrH < 10):
-            return getBestMatchLoc(testIm=testIm, refIm=refIm)
+            ret = getBestMatchLoc(testIm=testIm, refIm=refIm)
+            return Point(w=ret[0], h=ret[1])
         else:
 
             smallTestIm = cv2.pyrDown(testIm)
             smallRefIm = cv2.pyrDown(refIm)
 
             locInSmall = self.getUpperLeftMatchHier(smallTestIm, smallRefIm)
-            ret = ( locInSmall[0]*2, locInSmall[1]*2 )
+            posLocInBig = locInSmall * 2
+
+
+            ret = posLocInBig
 
             return ret
 
