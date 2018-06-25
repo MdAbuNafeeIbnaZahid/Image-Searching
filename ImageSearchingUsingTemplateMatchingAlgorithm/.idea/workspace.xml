@@ -11,42 +11,49 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/ImageSearchingUsingTemplateMatchingAlgorithm$input_taking.coverage" NAME="input_taking Coverage Results" MODIFIED="1529516716733" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/ImageSearchingUsingTemplateMatchingAlgorithm$fileReader.coverage" NAME="fileReader Coverage Results" MODIFIED="1529864788072" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../../Recommendation-System-using-ALS-algorithm/Recommendation Using ALS" />
     <SUITE FILE_PATH="coverage/ImageSearchingUsingTemplateMatchingAlgorithm$main__1_.coverage" NAME="main (1) Coverage Results" MODIFIED="1529511621905" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../../OOPWithPython2" />
     <SUITE FILE_PATH="coverage/ImageSearchingUsingTemplateMatchingAlgorithm$person_department.coverage" NAME="person-department Coverage Results" MODIFIED="1529486942076" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../../OOPWithPython2" />
     <SUITE FILE_PATH="coverage/ImageSearchingUsingTemplateMatchingAlgorithm$image_search_algo.coverage" NAME="image_search_algo Coverage Results" MODIFIED="1529589288151" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/ImageSearchingUsingTemplateMatchingAlgorithm$person_composite.coverage" NAME="person-composite Coverage Results" MODIFIED="1529484405756" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../../OOPWithPython2" />
-    <SUITE FILE_PATH="coverage/ImageSearchingUsingTemplateMatchingAlgorithm$opencv_learning.coverage" NAME="opencv_learning Coverage Results" MODIFIED="1529604835325" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv" />
+    <SUITE FILE_PATH="coverage/ImageSearchingUsingTemplateMatchingAlgorithm$opencv_learning.coverage" NAME="opencv_learning Coverage Results" MODIFIED="1529924216888" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv" />
     <SUITE FILE_PATH="coverage/ImageSearchingUsingTemplateMatchingAlgorithm$person.coverage" NAME="person Coverage Results" MODIFIED="1529502965494" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../../OOPWithPython2" />
     <SUITE FILE_PATH="coverage/ImageSearchingUsingTemplateMatchingAlgorithm$classtools.coverage" NAME="classtools Coverage Results" MODIFIED="1529501240737" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../../OOPWithPython2" />
-    <SUITE FILE_PATH="coverage/ImageSearchingUsingTemplateMatchingAlgorithm$main.coverage" NAME="main Coverage Results" MODIFIED="1529139193611" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/ImageSearchingUsingTemplateMatchingAlgorithm$main.coverage" NAME="main Coverage Results" MODIFIED="1529922308572" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../../Recommendation-System-using-ALS-algorithm/Recommendation Using ALS" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/main.py">
+      <file leaf-file-name="fileReader.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../Recommendation-System-using-ALS-algorithm/Recommendation Using ALS/fileReader.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="10" column="33" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
+            <state relative-caret-position="73">
+              <caret line="71" column="60" lean-forward="true" selection-start-line="71" selection-start-column="60" selection-end-line="71" selection-end-column="60" />
               <folding>
-                <element signature="e#0#31#0" expanded="true" />
+                <element signature="e#0#18#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test1.jpeg" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test1.jpeg">
-          <provider selected="true" editor-type-id="images" />
+      <file leaf-file-name="data.csv" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../Recommendation-System-using-ALS-algorithm/Recommendation Using ALS/data.csv">
+          <provider selected="true" editor-type-id="LargeFileEditor" />
         </entry>
       </file>
-      <file leaf-file-name="input_taking.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/input_taking.py">
+      <file leaf-file-name="train.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../Recommendation-System-using-ALS-algorithm/Recommendation Using ALS/train.json">
+          <provider selected="true" editor-type-id="LargeFileEditor">
+            <state relative-caret-position="168">
+              <caret column="290" selection-start-column="288" selection-end-column="290" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="customDataStructure.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../Recommendation-System-using-ALS-algorithm/Recommendation Using ALS/customDataStructure.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="586">
-              <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
-              <folding>
-                <element signature="e#0#10#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="339">
+              <caret line="72" column="38" lean-forward="true" selection-start-line="72" selection-start-column="38" selection-end-line="72" selection-end-column="38" />
             </state>
           </provider>
         </entry>
@@ -54,49 +61,20 @@
       <file leaf-file-name="input.txt" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/input.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+            <state relative-caret-position="90">
+              <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ref4.jpg" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ref4.jpg">
-          <provider selected="true" editor-type-id="images" />
-        </entry>
-      </file>
-      <file leaf-file-name="test2.png" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test2.png">
-          <provider selected="true" editor-type-id="images" />
-        </entry>
-      </file>
-      <file leaf-file-name="ref2.png" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ref2.png">
-          <provider selected="true" editor-type-id="images" />
-        </entry>
-      </file>
-      <file leaf-file-name="ref1.jpeg" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ref1.jpeg">
-          <provider selected="true" editor-type-id="images" />
-        </entry>
-      </file>
-      <file leaf-file-name="image_search_algo.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/image_search_algo.py">
+      <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="244">
-              <caret line="356" column="49" selection-start-line="356" selection-start-column="49" selection-end-line="356" selection-end-column="49" />
+            <state relative-caret-position="225">
+              <caret line="14" lean-forward="true" selection-start-line="20" selection-end-line="20" selection-end-column="21" />
               <folding>
-                <element signature="e#0#10#0" expanded="true" />
+                <element signature="e#0#31#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="classtools.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/classtools.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="6" column="21" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -109,6 +87,11 @@
         <option value="Python Script" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>cv2</find>
+    </findStrings>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -125,6 +108,10 @@
         <option value="$PROJECT_DIR$/classtools.py" />
         <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/image_search_algo.py" />
+        <option value="$PROJECT_DIR$/../../Recommendation-System-using-ALS-algorithm/Recommendation Using ALS/fileReader.py" />
+        <option value="$PROJECT_DIR$/../../Recommendation-System-using-ALS-algorithm/Recommendation Using ALS/sparse_matrix.py" />
+        <option value="$PROJECT_DIR$/../../Recommendation-System-using-ALS-algorithm/Recommendation Using ALS/main.py" />
+        <option value="$PROJECT_DIR$/../../Recommendation-System-using-ALS-algorithm/Recommendation Using ALS/customDataStructure.py" />
         <option value="$PROJECT_DIR$/input.txt" />
       </list>
     </option>
@@ -159,7 +146,12 @@
             </path>
             <path>
               <item name="ImageSearchingUsingTemplateMatchingAlgorithm" type="b2602c69:ProjectViewProjectNode" />
-              <item name="OOPWithPython2" type="462c0819:PsiDirectoryNode" />
+              <item name="Recommendation Using ALS" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ImageSearchingUsingTemplateMatchingAlgorithm" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Recommendation Using ALS" type="462c0819:PsiDirectoryNode" />
+              <item name="env" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -193,6 +185,25 @@
     </option>
   </component>
   <component name="RunManager" selected="Python.opencv_learning">
+    <configuration name="fileReader" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Recommendation Using ALS" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../../Recommendation-System-using-ALS-algorithm/Recommendation Using ALS" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../../Recommendation-System-using-ALS-algorithm/Recommendation Using ALS/fileReader.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
     <configuration name="image_search_algo" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="ImageSearchingUsingTemplateMatchingAlgorithm" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -231,20 +242,20 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
-    <configuration name="main (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="OOPWithPython2" />
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Recommendation Using ALS" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../../OOPWithPython2" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../../Recommendation-System-using-ALS-algorithm/Recommendation Using ALS" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../../OOPWithPython2/main.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../../Recommendation-System-using-ALS-algorithm/Recommendation Using ALS/main.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -269,39 +280,20 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
-    <configuration name="person" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="OOPWithPython2" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../../OOPWithPython2" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../../OOPWithPython2/person.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-    </configuration>
     <list>
-      <item itemvalue="Python.main (1)" />
-      <item itemvalue="Python.person" />
       <item itemvalue="Python.opencv_learning" />
       <item itemvalue="Python.input_taking" />
       <item itemvalue="Python.image_search_algo" />
+      <item itemvalue="Python.fileReader" />
+      <item itemvalue="Python.main" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.opencv_learning" />
+        <item itemvalue="Python.main" />
+        <item itemvalue="Python.fileReader" />
         <item itemvalue="Python.image_search_algo" />
         <item itemvalue="Python.input_taking" />
-        <item itemvalue="Python.main (1)" />
-        <item itemvalue="Python.person" />
       </list>
     </recent_temporary>
   </component>
@@ -327,7 +319,7 @@
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Python Console" order="7" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.25237593" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.4318902" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13167836" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
@@ -352,13 +344,13 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/test1.jpeg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/pillow_learning.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="20" column="33" selection-start-line="20" selection-start-column="33" selection-end-line="20" selection-end-column="33" />
-          <folding>
-            <element signature="e#0#45#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -386,15 +378,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="15" selection-start-line="15" selection-end-line="15" />
-          <folding>
-            <element signature="e#55#76#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/trainBDFlag.jpeg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/trainBDFlag.jpeg" />
     <entry file="file://$PROJECT_DIR$/../../OOPWithPython2/person-composite.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="675">
@@ -406,9 +393,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="20" column="33" selection-start-line="20" selection-start-column="33" selection-end-line="20" selection-end-column="33" />
-          <folding>
-            <element signature="e#0#45#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -422,15 +406,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="15" selection-start-line="15" selection-end-line="15" />
-          <folding>
-            <element signature="e#55#76#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/trainBDFlag.jpeg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/trainBDFlag.jpeg" />
     <entry file="file://$PROJECT_DIR$/../../OOPWithPython2/main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1365">
@@ -442,9 +421,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="13" column="21" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#45#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -458,22 +434,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
-          <folding>
-            <element signature="e#55#76#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/trainBDFlag.jpeg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/trainBDFlag.jpeg" />
     <entry file="file://$PROJECT_DIR$/pillow_learning.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="10" lean-forward="true" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
-          <folding>
-            <element signature="e#0#45#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -483,9 +451,7 @@
     <entry file="file://$PROJECT_DIR$/BDMapBDFlag.jpeg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/trainBDFlag.jpeg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/trainBDFlag.jpeg" />
     <entry file="file://$PROJECT_DIR$/BDFlagWaving.jpeg">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -493,9 +459,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="15" selection-start-line="15" selection-end-line="15" />
-          <folding>
-            <element signature="e#55#76#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -525,9 +488,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="426">
           <caret line="20" column="33" selection-start-line="20" selection-start-column="33" selection-end-line="20" selection-end-column="33" />
-          <folding>
-            <element signature="e#0#45#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -560,18 +520,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/classtools.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
+        <state relative-caret-position="90">
           <caret line="6" column="21" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/input_taking.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="586">
-          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -581,29 +531,76 @@
     <entry file="file://$PROJECT_DIR$/test2.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/ref1.jpeg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test1.jpeg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/ref4.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ref1.jpeg">
       <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/image_search_algo.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="356" column="49" selection-start-line="356" selection-start-column="49" selection-end-line="356" selection-end-column="49" />
+        <state relative-caret-position="287">
+          <caret line="202" column="4" selection-start-line="202" selection-start-column="4" selection-end-line="202" selection-end-column="17" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/input_taking.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" column="57" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="57" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test1.jpeg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Recommendation-System-using-ALS-algorithm/Recommendation Using ALS/train.json">
+      <provider selected="true" editor-type-id="LargeFileEditor">
+        <state relative-caret-position="168">
+          <caret column="290" selection-start-column="288" selection-end-column="290" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Recommendation-System-using-ALS-algorithm/Recommendation Using ALS/data.csv">
+      <provider selected="true" editor-type-id="LargeFileEditor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Recommendation-System-using-ALS-algorithm/Recommendation Using ALS/fileReader.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="73">
+          <caret line="71" column="60" lean-forward="true" selection-start-line="71" selection-start-column="60" selection-end-line="71" selection-end-column="60" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Recommendation-System-using-ALS-algorithm/Recommendation Using ALS/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="333">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
+          <folding>
+            <element signature="e#0#48#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Recommendation-System-using-ALS-algorithm/Recommendation Using ALS/customDataStructure.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="339">
+          <caret line="72" column="38" lean-forward="true" selection-start-line="72" selection-start-column="38" selection-end-line="72" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="10" column="33" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
+        <state relative-caret-position="225">
+          <caret line="14" lean-forward="true" selection-start-line="20" selection-end-line="20" selection-end-column="21" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>
@@ -612,8 +609,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/input.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+        <state relative-caret-position="90">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
         </state>
       </provider>
     </entry>

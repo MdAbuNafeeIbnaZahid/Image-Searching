@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/ImageSearchingUsingTemplateMatchingAlgorithm.iml" filepath="$PROJECT_DIR$/.idea/ImageSearchingUsingTemplateMatchingAlgorithm.iml" />
       <module fileurl="file://$PROJECT_DIR$/../../OOPWithPython2/.idea/OOPWithPython2.iml" filepath="$PROJECT_DIR$/../../OOPWithPython2/.idea/OOPWithPython2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../Recommendation-System-using-ALS-algorithm/Recommendation Using ALS/.idea/Recommendation Using ALS.iml" filepath="$PROJECT_DIR$/../../Recommendation-System-using-ALS-algorithm/Recommendation Using ALS/.idea/Recommendation Using ALS.iml" />
     </modules>
   </component>
 </project>
